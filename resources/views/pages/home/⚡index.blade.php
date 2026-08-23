@@ -84,14 +84,14 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
 
 <div class="space-y-10">
     {{-- Hero --}}
-    <section class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-indigo-900 to-sky-950 shadow-xl shadow-indigo-950/20">
-        <div class="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-sky-500/20 blur-3xl" aria-hidden="true"></div>
-        <div class="pointer-events-none absolute -bottom-32 -left-16 size-80 rounded-full bg-emerald-500/15 blur-3xl" aria-hidden="true"></div>
+    <section class="relative isolate overflow-hidden rounded-3xl bg-gradient-to-br from-orange-950 via-orange-900 to-amber-950 shadow-xl shadow-orange-950/20">
+        <div class="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-amber-500/20 blur-3xl" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute -bottom-32 -left-16 size-80 rounded-full bg-orange-500/15 blur-3xl" aria-hidden="true"></div>
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.08),transparent_60%)]" aria-hidden="true"></div>
 
         <div class="relative grid items-center gap-10 px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-[1.2fr_1fr] lg:px-14">
             <div class="space-y-6">
-                <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-[0.18em] text-sky-100 uppercase backdrop-blur">
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold tracking-[0.18em] text-amber-100 uppercase backdrop-blur">
                     <flux:icon class="size-3.5" icon="academic-cap" />
                     {{ __('Politeknik Muadzam Shah') }}
                 </span>
@@ -100,19 +100,19 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                     <h1 class="text-balance text-4xl leading-tight font-bold tracking-tight text-white sm:text-5xl xl:text-6xl">
                         {{ __('Sports Complex & Equipment Hub') }}
                     </h1>
-                    <p class="text-pretty max-w-xl text-base leading-relaxed text-indigo-100/90 sm:text-lg">
+                    <p class="text-pretty max-w-xl text-base leading-relaxed text-orange-100/90 sm:text-lg">
                         {{ __('Your official portal for Politeknik Muadzam Shah sports facilities and smart equipment borrowing. Check real-time court availability, reserve gear online, and collect instantly at the sports counter.') }}
                     </p>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-3">
                     @auth
-                        <flux:button variant="primary" :href="route('dashboard')" wire:navigate class="!bg-white !text-indigo-900 hover:!bg-indigo-50">
+                        <flux:button variant="primary" :href="route('dashboard')" wire:navigate class="!bg-white !text-orange-900 hover:!bg-orange-50">
                             {{ __('Open my dashboard') }}
                             <flux:icon icon="arrow-right" variant="mini" class="size-4" />
                         </flux:button>
                     @else
-                        <flux:button variant="primary" :href="route('login')" wire:navigate class="!bg-white !text-indigo-900 hover:!bg-indigo-50">
+                        <flux:button variant="primary" :href="route('login')" wire:navigate class="!bg-white !text-orange-900 hover:!bg-orange-50">
                             {{ __('Student login') }}
                             <flux:icon icon="arrow-right" variant="mini" class="size-4" />
                         </flux:button>
@@ -125,17 +125,17 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                 </div>
 
                 <dl class="grid max-w-lg grid-cols-3 gap-x-4 pt-2 sm:gap-x-6">
-                    <div class="space-y-1 border-l-2 border-sky-400/60 py-0.5 pl-3">
+                    <div class="space-y-1 border-l-2 border-orange-400/60 py-0.5 pl-3">
                         <dd class="text-xl font-bold tabular-nums text-white sm:text-2xl">{{ $facilities->count() }}</dd>
-                        <dt class="text-xs font-medium tracking-wide text-indigo-200">{{ __('Facilities') }}</dt>
-                    </div>
-                    <div class="space-y-1 border-l-2 border-emerald-400/60 py-0.5 pl-3">
-                        <dd class="text-xl font-bold tabular-nums text-white sm:text-2xl">{{ $gearTypes }}+</dd>
-                        <dt class="text-xs font-medium tracking-wide text-indigo-200">{{ __('Gear types') }}</dt>
+                        <dt class="text-xs font-medium tracking-wide text-orange-200">{{ __('Facilities') }}</dt>
                     </div>
                     <div class="space-y-1 border-l-2 border-amber-400/60 py-0.5 pl-3">
+                        <dd class="text-xl font-bold tabular-nums text-white sm:text-2xl">{{ $gearTypes }}+</dd>
+                        <dt class="text-xs font-medium tracking-wide text-orange-200">{{ __('Gear types') }}</dt>
+                    </div>
+                    <div class="space-y-1 border-l-2 border-yellow-400/60 py-0.5 pl-3">
                         <dd class="text-xl font-bold tabular-nums whitespace-nowrap text-white sm:text-2xl">{{ $closingTime }}</dd>
-                        <dt class="text-xs font-medium tracking-wide text-indigo-200">{{ __('Closes daily') }}</dt>
+                        <dt class="text-xs font-medium tracking-wide text-orange-200">{{ __('Closes daily') }}</dt>
                     </div>
                 </dl>
             </div>
@@ -150,7 +150,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                         </span>
                         <flux:text class="!font-semibold !text-white">{{ __('Live right now') }}</flux:text>
                     </div>
-                    <flux:badge size="sm" variant="pill" class="!bg-emerald-400/15 !text-emerald-300">
+                    <flux:badge size="sm" variant="pill" class="!bg-amber-400/15 !text-amber-300">
                         {{ __('Day use only') }}
                     </flux:badge>
                 </div>
@@ -208,7 +208,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                             data-test="facility-type-card"
                         >
                             <div class="flex items-start justify-between gap-2">
-                                <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-indigo-600/10 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300">
+                                <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-orange-600/10 text-orange-700 dark:bg-orange-400/10 dark:text-orange-300">
                                     <flux:icon icon="{{ $this->iconFor($group->key) }}" class="size-6" />
                                 </span>
                                 @php
@@ -228,7 +228,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                                 </p>
                             @endif
 
-                            <p class="mt-auto flex items-center gap-1.5 text-xs font-semibold text-accent-content opacity-0 transition group-hover:opacity-100 dark:text-indigo-300">
+                            <p class="mt-auto flex items-center gap-1.5 text-xs font-semibold text-accent-content opacity-0 transition group-hover:opacity-100 dark:text-orange-300">
                                 {{ __('View :n facilities', ['n' => $group->facilities->count()]) }}
                                 <flux:icon icon="arrow-right" variant="mini" class="size-3.5" />
                             </p>
@@ -248,7 +248,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
         @if ($activeGroup)
             <div class="space-y-5" data-test="facility-group-modal">
                 <div class="flex items-start gap-3">
-                    <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-indigo-600/10 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300">
+                    <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-orange-600/10 text-orange-700 dark:bg-orange-400/10 dark:text-orange-300">
                         <flux:icon icon="{{ $this->iconFor($activeGroup->key) }}" class="size-6" />
                     </span>
                     <div class="min-w-0 space-y-0.5">
@@ -296,7 +296,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
 
         <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <flux:card class="group transition hover:-translate-y-0.5 hover:shadow-lg">
-                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-indigo-600/10 text-indigo-700 dark:bg-indigo-400/10 dark:text-indigo-300">
+                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-orange-600/10 text-orange-700 dark:bg-orange-400/10 dark:text-orange-300">
                     <flux:icon icon="building-library" class="size-6" />
                 </span>
                 <flux:heading>{{ __('Facility directory') }}</flux:heading>
@@ -306,7 +306,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
             </flux:card>
 
             <flux:card class="group transition hover:-translate-y-0.5 hover:shadow-lg">
-                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-emerald-600/10 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-300">
+                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-amber-600/10 text-amber-700 dark:bg-amber-400/10 dark:text-amber-300">
                     <flux:icon icon="qr-code" class="size-6" />
                 </span>
                 <flux:heading>{{ __('Smart equipment borrowing') }}</flux:heading>
@@ -316,7 +316,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
             </flux:card>
 
             <flux:card class="group transition hover:-translate-y-0.5 hover:shadow-lg">
-                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-sky-600/10 text-sky-700 dark:bg-sky-400/10 dark:text-sky-300">
+                <span class="mb-4 inline-grid size-11 place-items-center rounded-xl bg-yellow-600/10 text-yellow-700 dark:bg-yellow-400/10 dark:text-yellow-300">
                     <flux:icon icon="shield-check" class="size-6" />
                 </span>
                 <flux:heading>{{ __('Fair rules, safe play') }}</flux:heading>
@@ -346,10 +346,10 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                     ['3', 'clock', 'Return on time', 'Bring everything back within 2 hours and before 6:30 PM — late returns trigger a 14-day borrowing pause.'],
                 ] as [$step, $icon, $title, $copy])
                     <li class="relative flex flex-col items-center gap-3 text-center">
-                        <span class="z-10 inline-grid size-10 place-items-center rounded-full bg-gradient-to-br from-indigo-600 to-sky-500 text-sm font-bold text-white shadow-md shadow-indigo-600/30">
+                        <span class="z-10 inline-grid size-10 place-items-center rounded-full bg-gradient-to-br from-orange-600 to-amber-500 text-sm font-bold text-white shadow-md shadow-orange-600/30">
                             {{ $step }}
                         </span>
-                        <span class="text-indigo-600 dark:text-indigo-400">
+                        <span class="text-orange-600 dark:text-orange-400">
                             <flux:icon icon="{{ $icon }}" class="size-6" />
                         </span>
                         <div class="space-y-1">
@@ -364,8 +364,8 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
 
     {{-- Rules CTA band --}}
     <section>
-        <div class="flex flex-col items-start gap-4 rounded-2xl border border-zinc-200 bg-gradient-to-r from-indigo-50 via-sky-50 to-indigo-50 p-6 sm:flex-row sm:items-center dark:border-zinc-800 dark:from-indigo-500/10 dark:via-sky-500/10 dark:to-indigo-500/10">
-            <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-indigo-600/10 text-indigo-600 dark:text-indigo-400">
+        <div class="flex flex-col items-start gap-4 rounded-2xl border border-zinc-200 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 p-6 sm:flex-row sm:items-center dark:border-zinc-800 dark:from-orange-500/10 dark:via-amber-500/10 dark:to-orange-500/10">
+            <span class="inline-grid size-11 shrink-0 place-items-center rounded-xl bg-orange-600/10 text-orange-600 dark:text-orange-400">
                 <flux:icon icon="book-open" class="size-6" />
             </span>
             <div class="flex-1 space-y-1">
@@ -374,7 +374,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                     {{ __('Borrowing windows, deposit rules and penalty policy — read the house rules so your session never gets cut short.') }}
                 </flux:text>
             </div>
-            <flux:button variant="primary" :href="route('rules.index')" wire:navigate class="shrink-0">
+            <flux:button variant="primary" :href="route('rules.index')" wire:navigate class="shrink-0 !bg-orange-600 !text-white hover:!bg-orange-500">
                 {{ __('Read the rules') }}
                 <flux:icon icon="arrow-right" variant="mini" class="size-4" />
             </flux:button>
