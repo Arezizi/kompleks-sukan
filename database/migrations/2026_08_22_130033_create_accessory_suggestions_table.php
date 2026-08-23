@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('prompt');
             $table->timestamps();
 
-            $table->unique(['equipment_type_id', 'suggested_equipment_type_id']);
+            // Explicit short name: MySQL caps identifiers at 64 characters and
+            // the auto-generated composite name exceeds it.
+            $table->unique(['equipment_type_id', 'suggested_equipment_type_id'], 'accessory_suggestions_pair_unique');
         });
     }
 
