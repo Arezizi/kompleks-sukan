@@ -124,7 +124,7 @@ new #[Layout('layouts::public')] #[Title('Sports Complex & Equipment Hub')] clas
                     </flux:button>
                 </div>
 
-                <dl class="grid max-w-lg grid-cols-3 gap-x-6 pt-2">
+                <dl class="grid max-w-lg grid-cols-3 gap-x-4 pt-2 sm:gap-x-6">
                     <div class="space-y-1 border-l-2 border-sky-400/60 py-0.5 pl-3">
                         <dd class="text-xl font-bold tabular-nums text-white sm:text-2xl">{{ $facilities->count() }}</dd>
                         <dt class="text-xs font-medium tracking-wide text-indigo-200">{{ __('Facilities') }}</dt>

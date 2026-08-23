@@ -66,6 +66,41 @@
                     </flux:menu>
                 </flux:dropdown>
             @endguest
+
+            {{-- Compact navigation for phones --}}
+            <div class="md:hidden">
+                <flux:dropdown position="bottom" align="end">
+                    <flux:button variant="subtle" size="sm" icon="bars-2" aria-label="{{ __('Menu') }}" data-test="mobile-nav-toggle" />
+
+                    <flux:menu>
+                        <flux:menu.radio.group>
+                            <flux:menu.item href="{{ route('home') }}#status-board" icon="squares-2x2">
+                                {{ __('Status board') }}
+                            </flux:menu.item>
+
+                            <flux:menu.item :href="route('gear.index')" icon="cube" wire:navigate>
+                                {{ __('Gear') }}
+                            </flux:menu.item>
+
+                            <flux:menu.item :href="route('rules.index')" icon="book-open" wire:navigate>
+                                {{ __('Rules') }}
+                            </flux:menu.item>
+                        </flux:menu.radio.group>
+
+                        <flux:menu.separator />
+
+                        @guest
+                            <flux:menu.item :href="route('login')" icon="arrow-right-end-on-rectangle" wire:navigate>
+                                {{ __('Log in') }}
+                            </flux:menu.item>
+                        @else
+                            <flux:menu.item :href="route('dashboard')" icon="home" wire:navigate>
+                                {{ __('Dashboard') }}
+                            </flux:menu.item>
+                        @endguest
+                    </flux:menu>
+                </flux:dropdown>
+            </div>
         </flux:header>
 
         <x-weather-banner />
@@ -74,21 +109,21 @@
             {{ $slot }}
         </flux:main>
 
-        <footer class="mt-8 border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-            <div class="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row lg:px-8">
+        <flux:footer container class="border-t border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
+            <div class="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
                 <div class="flex items-center gap-2.5">
                     <span class="grid size-7 place-items-center rounded-md bg-accent-content text-accent-foreground">
                         <x-app-logo-icon class="size-4 fill-current" />
                     </span>
                     <span class="text-sm font-semibold">{{ config('app.name', 'Laravel') }}</span>
-                    <span class="text-sm text-zinc-400 dark:text-zinc-500">— {{ __('Sports Complex & Equipment Hub') }}</span>
+                    <span class="truncate text-sm text-zinc-400 dark:text-zinc-500">— {{ __('Sports Complex & Equipment Hub') }}</span>
                 </div>
 
-                <p class="text-xs text-zinc-500 dark:text-zinc-400">
+                <p class="text-xs whitespace-nowrap text-zinc-500 dark:text-zinc-400">
                     {{ __(':year :app. All rights reserved.', ['year' => date('Y'), 'app' => config('app.name', 'Laravel')]) }}
                 </p>
             </div>
-        </footer>
+        </flux:footer>
 
         @persist('toast')
             <flux:toast.group>
